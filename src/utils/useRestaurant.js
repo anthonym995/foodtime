@@ -9,7 +9,10 @@ const useRestaurant = (resId) => {
   }, []);
 
   async function getRestaurant() {
-    const data = await fetch(FETCH_URL + resId);
+    const data = await fetch(FETCH_URL + resId, {
+    
+    mode: "cors",  // Change the mode to CORS  
+    });
     const json = await data.json();
     setRestaurant(json?.data?.cards[0]?.card?.card?.info);
     setListItems(
